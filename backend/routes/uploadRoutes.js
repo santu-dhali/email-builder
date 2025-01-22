@@ -19,7 +19,7 @@ router.post('/uploadImage', upload.single('image'), (req, res) => {
   if (!req.file) {
     return res.status(400).json({ error: 'No file uploaded' });
   }
-  const imageUrl = `http://localhost:3001/uploads/${req.file.filename}`;
+  const imageUrl = `https://email-builder-backend-fc4e.onrender.com/${req.file.filename}`;
   res.json({ imageUrl });
 });
 
