@@ -49,7 +49,7 @@ const App = () => {
 
   const fetchEmailLayout = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/api/getEmailLayout");
+      const response = await axios.get("https://email-builder-backend-fc4e.onrender.com/api/getEmailLayout");
       setTemplate(response.data.layout);
     } catch (error) {
       console.error("Error fetching layout:", error);
@@ -73,7 +73,7 @@ const App = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3001/api/uploadImage",
+        "https://email-builder-backend-fc4e.onrender.com/api/uploadImage",
         formData
       );
       setImageUrls(prev => ({
@@ -154,7 +154,7 @@ const App = () => {
         ...emailConfig,
         ...imageUrls
       };
-      await axios.post("http://localhost:3001/api/uploadEmailConfig", completeConfig);
+      await axios.post("https://email-builder-backend-fc4e.onrender.com/api/uploadEmailConfig", completeConfig);
       alert("Template saved successfully!");
     } catch (error) {
       console.error("Error saving template:", error);
@@ -168,7 +168,7 @@ const App = () => {
         ...imageUrls
       };
       const response = await axios.post(
-        "http://localhost:3001/api/renderAndDownloadTemplate",
+        "https://email-builder-backend-fc4e.onrender.com/api/renderAndDownloadTemplate",
         completeConfig
       );
       const blob = new Blob([response.data], { type: "text/html" });
